@@ -5,7 +5,7 @@
         <div :class="[task.completed ? 'complete' : '', 'text']" @click="$emit('task-selected', task.id)">
             <h3>{{task.text}}</h3>
             <div >
-                <p class="category-date">{{task.category}} - {{parseDate}}</p>
+                <p class="category-date">{{task.category}} - {{stringDate}}</p>
             </div>
         </div>
   
@@ -24,7 +24,7 @@ export default defineComponent({
         task: Object as PropType<ITask>
     },
     computed: {
-        parseDate(): string {
+        stringDate(): string {
             const dateTime = this.task?.endDate?.toISOString().split('T')[1].slice(0, 5) || '';
             const dateDay = this.task?.endDate?.toString().split(' ').slice(1, 4).join(' ') || '';
             if (dateTime === '' && dateDay === '') { return ''; }

@@ -65,13 +65,11 @@ export default defineComponent({
         }
     },
     created (): void {
-        console.log ('end day init', this.task?.endDate?.toISOString().split('T')[1].slice(0, 5));
         this.text = this.task?.text || '';
         this.category = this.task?.category || '';
         this.endDay = this.task?.endDate?.toISOString().split('T')[0]||'';
         this.endTime = this.task?.endDate?.toString().split(' ')[4].slice(0, 5)||'';
         this.creationDay = this.task?.creationDate.toISOString().split('T')[0]||'';
-        console.log(this.task?.creationDate.toISOString());
     },
     methods: {
         action(): void {
@@ -98,7 +96,6 @@ export default defineComponent({
                 updatedTask.endDate = new Date();
                 updatedTask.endDate.setHours(parseInt(this.endTime.split(':')[0]), parseInt(this.endTime.split(':')[1]));
             }
-            console.log('Updated end time', this.endDay, this.endTime, updatedTask.endDate)
             this.$emit('update-task', updatedTask);
         }
     }

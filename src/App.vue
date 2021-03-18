@@ -77,7 +77,6 @@ export default defineComponent({
         if (a.completed && !b.completed) { return 1; }
         if (!a.completed && b.completed) { return -1; }
         if (a.endDate === undefined && b.endDate === undefined) {
-          console.log('both a and b are undefined', a.text, b.text)
           return (a.creationDate < b.creationDate ? -1 : a.creationDate > b.creationDate ? 1 : 0);
         }
         if (a.endDate === undefined) {  return 1; }
@@ -106,7 +105,7 @@ export default defineComponent({
         creationDate: new Date('March 12, 2021 13:24:00'),
         completed: false,
         endDate: new Date('March 15, 2021 12:00:00'),
-        category: 'Kids',
+        category: 'School',
         selected: false
       } as ITask,
       {
