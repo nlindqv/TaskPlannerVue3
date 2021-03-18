@@ -1,4 +1,4 @@
-# task_v3_object
+# Task Planner
 
 ## Project setup
 ```
